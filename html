@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Special Someone?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-image: url('https://example.com/your-photo.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 50px;
+            margin: 0;
+            opacity: 0; /* Start with opacity 0 */
+            animation: fadeIn 2s forwards; /* Fade-in animation */
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1; /* Final state */
+            }
+        }
+
+        h1 {
+            color: #ff6b81;
+            font-size: 3em;
+            animation: slideIn 1s ease-out forwards; /* Slide in the title */
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        p {
+            font-size: 1.5em;
+            opacity: 0;
+            animation: fadeInText 1.5s 1s forwards; /* Delayed fade-in for text */
+        }
+
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .heart {
+            color: #ff6b81;
+            font-size: 5em;
+            animation: bounce 1.5s infinite; /* Bouncing heart */
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .buttons {
+            margin-top: 30px;
+            opacity: 0;
+            animation: fadeInButtons 1.5s 1.5s forwards; /* Delayed fade-in for buttons */
+        }
+
+        @keyframes fadeInButtons {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .button {
+            background-color: #ff6b81;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.3s, background-color 0.3s; /* Smooth transition */
+        }
+
+        .button:hover {
+            background-color: #ff4757;
+            transform: scale(1.1); /* Slight zoom on hover */
+        }
+
+        .no-button {
+            background-color: #576574;
+        }
+
+        .no-button:hover {
+            background-color: #2f3640;
+        }
+
+        #thank-you-message {
+            display: none;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInThankYou 1s forwards; /* Fade-in effect when displayed */
+        }
+
+        @keyframes fadeInThankYou {
+            to {
+                opacity: 1;
+            }
+        }
+
+        #thank-you-message img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 15px;
+        }
+
+        #thank-you-message h2 {
+            color: #ff6b81;
+            font-size: 2.5em;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for better text visibility */
+            padding: 50px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-top: 50px;
+        }
+
+        @keyframes moveButton {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(200px, 100px); }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="proposal-content" class="overlay">
+        <h1>Will You Be Mine Missu Ji(Ishika)🌹❤️?</h1>
+        <p>You make my world brighter, my heart lighter, and my life better. Will you be the one I call mine?</p>
+        <p><span class="heart">💕</span></p>
+
+        <div class="buttons">
+            <button class="button" onclick="showThankYou()">Yes</button>
+            <button class="button no-button" id="noBtn">No</button>
+        </div>
+    </div>
+
+    <div id="thank-you-message" class="overlay">
+        <h2>Thank You Missu Ji! 💖</h2>
+        <img src="https://img.freepik.com/premium-photo/document-picturesque-tableau-lovers-nestled-generative-ai_1169651-101752.jpg?w=900" alt="Romantic Mountain">
+        <p>Our journey together starts here!</p>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('noBtn');
+
+        noButton.addEventListener('mouseover', function() {
+            const randomX = Math.random() * (window.innerWidth - this.offsetWidth);
+            const randomY = Math.random() * (window.innerHeight - this.offsetHeight);
+
+            this.style.position = 'absolute';
+            this.style.left = randomX + 'px';
+            this.style.top = randomY + 'px';
+            this.style.transition = 'transform 0.3s ease'; /* Smooth button movement */
+        });
+
+        function showThankYou() {
+            // Hide the proposal content
+            document.getElementById('proposal-content').style.display = 'none';
+            // Show the thank-you message and image
+            const thankYou = document.getElementById('thank-you-message');
+            thankYou.style.display = 'block';
+            thankYou.style.animation = 'fadeInThankYou 1s forwards';
+        }
+    </script>
+</body>
+</html>
